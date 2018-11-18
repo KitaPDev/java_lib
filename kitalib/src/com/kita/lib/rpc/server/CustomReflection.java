@@ -78,8 +78,53 @@ public class CustomReflection {
                     return objReturn;
                 }
 
-                method.invoke(CustomReflection.getDefaultInstance(handledClass), lsMethodParameterClasses.get(0),
-                        lsMethodParameterClasses.get(1), lsMethodParameterClasses.get(2));
+                method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
+                        p_lsMethodParameters.get(1), p_lsMethodParameters.get(2));
+
+            } else if(lsMethodParameterClasses.size() == 4) {
+                method = handledClass.getDeclaredMethod(p_strMethodName, lsMethodParameterClasses.get(0),
+                        lsMethodParameterClasses.get(1), lsMethodParameterClasses.get(2), lsMethodParameterClasses.get(3));
+
+                if(!method.getReturnType().getName().equals("void")) {
+                    objReturn = method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
+                            p_lsMethodParameters.get(1), p_lsMethodParameters.get(2),p_lsMethodParameters.get(3));
+                    return objReturn;
+                }
+
+                method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
+                        p_lsMethodParameters.get(1), p_lsMethodParameters.get(2), p_lsMethodParameters.get(3));
+
+            } else if(lsMethodParameterClasses.size() == 5) {
+                method = handledClass.getDeclaredMethod(p_strMethodName, lsMethodParameterClasses.get(0),
+                        lsMethodParameterClasses.get(1), lsMethodParameterClasses.get(2), lsMethodParameterClasses.get(3),
+                        lsMethodParameterClasses.get(4));
+
+                if(!method.getReturnType().getName().equals("void")) {
+                    objReturn = method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
+                            p_lsMethodParameters.get(1), p_lsMethodParameters.get(2), p_lsMethodParameters.get(3),
+                            p_lsMethodParameters.get(4));
+                    return objReturn;
+                }
+
+                method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
+                        p_lsMethodParameters.get(1), p_lsMethodParameters.get(2), p_lsMethodParameters.get(3),
+                        p_lsMethodParameters.get(4));
+
+            } else if(lsMethodParameterClasses.size() == 6) {
+                method = handledClass.getDeclaredMethod(p_strMethodName, lsMethodParameterClasses.get(0),
+                        lsMethodParameterClasses.get(1), lsMethodParameterClasses.get(2), lsMethodParameterClasses.get(3),
+                        lsMethodParameterClasses.get(4), lsMethodParameterClasses.get(5));
+
+                if(!method.getReturnType().getName().equals("void")) {
+                    objReturn = method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
+                            p_lsMethodParameters.get(1), p_lsMethodParameters.get(2), p_lsMethodParameters.get(3),
+                            p_lsMethodParameters.get(4), p_lsMethodParameters.get(5));
+                    return objReturn;
+                }
+
+                method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
+                        p_lsMethodParameters.get(1), p_lsMethodParameters.get(2), p_lsMethodParameters.get(3),
+                        p_lsMethodParameters.get(4), p_lsMethodParameters.get(5));
             }
 
         } catch (NoSuchMethodException e) {
