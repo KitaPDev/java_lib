@@ -11,9 +11,8 @@ public class CustomReflection {
     private CustomReflection() {}
 
     public static Object getDefaultInstance(Class p_class) throws IllegalAccessException, InstantiationException {
-        Object objInstance = p_class.newInstance();
 
-        return objInstance;
+        return p_class.newInstance();
     }
 
     public static List<Method> getMethods(Object p_objHandler) {
@@ -42,15 +41,13 @@ public class CustomReflection {
                 lsMethodParameterClasses.add(p_lsMethodParameters.get(i).getClass());
             }
 
-            Method method = null;
-            Object objReturn;
+            Method method;
 
             if(lsMethodParameterClasses.size() == 1) {
                 method = handledClass.getDeclaredMethod(p_strMethodName, lsMethodParameterClasses.get(0));
 
                 if(!method.getReturnType().getName().equals("void")) {
-                    objReturn = method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0));
-                    return objReturn;
+                    return method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0));
                 }
 
                 method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0));
@@ -60,9 +57,9 @@ public class CustomReflection {
                         lsMethodParameterClasses.get(1));
 
                 if(!method.getReturnType().getName().equals("void")) {
-                    objReturn = method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
+                    return method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
                             p_lsMethodParameters.get(1));
-                    return objReturn;
+
                 }
 
                 method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
@@ -73,9 +70,9 @@ public class CustomReflection {
                         lsMethodParameterClasses.get(1), lsMethodParameterClasses.get(2));
 
                 if(!method.getReturnType().getName().equals("void")) {
-                    objReturn = method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
+                    return method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
                             p_lsMethodParameters.get(1), p_lsMethodParameters.get(2));
-                    return objReturn;
+
                 }
 
                 method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
@@ -86,9 +83,9 @@ public class CustomReflection {
                         lsMethodParameterClasses.get(1), lsMethodParameterClasses.get(2), lsMethodParameterClasses.get(3));
 
                 if(!method.getReturnType().getName().equals("void")) {
-                    objReturn = method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
+                    return method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
                             p_lsMethodParameters.get(1), p_lsMethodParameters.get(2),p_lsMethodParameters.get(3));
-                    return objReturn;
+
                 }
 
                 method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
@@ -100,10 +97,10 @@ public class CustomReflection {
                         lsMethodParameterClasses.get(4));
 
                 if(!method.getReturnType().getName().equals("void")) {
-                    objReturn = method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
+                    return method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
                             p_lsMethodParameters.get(1), p_lsMethodParameters.get(2), p_lsMethodParameters.get(3),
                             p_lsMethodParameters.get(4));
-                    return objReturn;
+
                 }
 
                 method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
@@ -116,10 +113,10 @@ public class CustomReflection {
                         lsMethodParameterClasses.get(4), lsMethodParameterClasses.get(5));
 
                 if(!method.getReturnType().getName().equals("void")) {
-                    objReturn = method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
+                    return method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
                             p_lsMethodParameters.get(1), p_lsMethodParameters.get(2), p_lsMethodParameters.get(3),
                             p_lsMethodParameters.get(4), p_lsMethodParameters.get(5));
-                    return objReturn;
+
                 }
 
                 method.invoke(CustomReflection.getDefaultInstance(handledClass), p_lsMethodParameters.get(0),
