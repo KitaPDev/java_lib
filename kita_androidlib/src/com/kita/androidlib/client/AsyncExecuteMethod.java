@@ -14,7 +14,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.List;
 
-public class AsyncExecuteMethod extends AsyncTask<String, Void, Void> {
+public class AsyncExecuteMethod extends AsyncTask<Void, Void, Void> {
 
     private String m_HOST;
     private int m_PORT;
@@ -45,7 +45,7 @@ public class AsyncExecuteMethod extends AsyncTask<String, Void, Void> {
 
 
     @Override
-    protected Void doInBackground(String... strings) {
+    protected Void doInBackground(Void... voids) {
 
         try {
             BEANRemoteExecution remoteExecution = new BEANRemoteExecution(m_strClassName,
