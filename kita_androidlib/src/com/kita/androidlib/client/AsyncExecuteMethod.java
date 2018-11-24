@@ -1,10 +1,8 @@
 package com.kita.androidlib.client;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.kita.lib.rpc.BEANRemoteExecution;
 

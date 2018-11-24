@@ -29,8 +29,6 @@ public class AsyncRetrieveList extends AsyncTask<Void, Void, List> {
 
     ProgressBar m_prgBar;
 
-    private List<BEANPettyCashTransaction> m_lsBEANPettyCashTransactions;
-
     public AsyncRetrieveList() {}
 
     public AsyncRetrieveList(String p_host, int p_port, Context p_context, String p_strClassName, String p_strMethodName,
@@ -70,7 +68,6 @@ public class AsyncRetrieveList extends AsyncTask<Void, Void, List> {
 
             ObjectInputStream clientInputStream = new ObjectInputStream(clientSocket.getInputStream());
             lsResult = (List<BEANPettyCashTransaction>) clientInputStream.readObject();
-            m_lsBEANPettyCashTransactions = lsResult;
 
             clientOutputStream.close();
             clientInputStream.close();
@@ -90,12 +87,6 @@ public class AsyncRetrieveList extends AsyncTask<Void, Void, List> {
     protected void onPostExecute(List result) {
         super.onPostExecute(result);
 
-        m_lsBEANPettyCashTransactions = result;
-
         m_prgBar.setVisibility(View.GONE);
-    }
-
-    public List<BEANPettyCashTransaction> getPettyCashTransactions() {
-        return m_lsBEANPettyCashTransactions;
     }
 }
