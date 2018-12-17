@@ -30,7 +30,7 @@ public class RPCServer {
             ServerSocket serverSocket = new ServerSocket(p_intPort);
 
             while (true) {
-                System.out.println("PettyCashServer Waiting . . .");
+                System.out.println("PettyCashServer Waiting on port " + p_intPort);
                 Socket clientSocket = serverSocket.accept();
                 System.out.println("New client connected: " + clientSocket);
 

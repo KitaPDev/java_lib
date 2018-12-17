@@ -16,16 +16,20 @@ public class RPCServerService implements Runnable {
 
     public void run() {
         try {
+            System.out.println("Retrieving socket data . . .");
             ObjectInputStream serverInputStream = new ObjectInputStream(m_clientSocket.getInputStream());
 
             BEANRemoteExecution beanRemoteExecution = (BEANRemoteExecution) serverInputStream.readObject();
 
+            System.out.println("Executing " + beanRemoteExecution.getMethodName() + " method at " + beanRemoteExecution.getClassName() +
+                    " class");
             Object objReturn = CustomReflection.executeMethod(beanRemoteExecution.getClassName(), beanRemoteExecution.getMethodName(),
                     beanRemoteExecution.getMethodParameters());
 
             ObjectOutputStream out = new ObjectOutputStream(m_clientSocket.getOutputStream());
             out.writeObject(objReturn);
             out.flush();
+            System.out.println("Result sent to client");
 
         } catch (Exception e) {
             e.printStackTrace();
