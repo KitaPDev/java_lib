@@ -22,12 +22,11 @@ public class AsyncExecuteMethod extends AsyncTask<Void, Void, Void> {
 
     private Object m_objResult;
 
-    private ProgressBar prgBar;
+    private ProgressBar m_prgBar;
 
     public AsyncExecuteMethod() {}
 
-    public AsyncExecuteMethod(ProgressBar prgBar, String p_HOST, int p_PORT, String p_strClassName, String p_strMethodName, List p_lsMethodParameters) {
-        this.prgBar = prgBar;
+    public AsyncExecuteMethod(String p_HOST, int p_PORT, String p_strClassName, String p_strMethodName, List p_lsMethodParameters) {
         m_HOST = p_HOST;
         m_PORT = p_PORT;
         m_strClassName = p_strClassName;
@@ -35,10 +34,14 @@ public class AsyncExecuteMethod extends AsyncTask<Void, Void, Void> {
         m_lsMethodParameters = p_lsMethodParameters;
     }
 
+    public void setProgressbar(ProgressBar p_prgBar) {
+        m_prgBar = p_prgBar;
+    }
+
     protected void onPreExecute() {
         super.onPreExecute();
 
-        prgBar.setVisibility(View.VISIBLE);
+        m_prgBar.setVisibility(View.VISIBLE);
     }
 
 
@@ -72,7 +75,7 @@ public class AsyncExecuteMethod extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void result) {
         super.onPostExecute(result);
 
-        prgBar.setVisibility(View.GONE);
+        m_prgBar.setVisibility(View.GONE);
     }
 
     public String getClassName() {
